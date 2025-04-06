@@ -31,7 +31,7 @@ A real-time dashboard for monitoring train operations including speed, signals, 
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/Sanjaykumar-M/train-monitoring.git
+git clone https://github.com/Sanjaykumar-2005/train-monitoring.git
 cd train-monitoring
 ```
 
