@@ -1,40 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Train Monitoring System
+
+A real-time dashboard for monitoring train operations including speed, signals, obstacle detection, and route tracking.
+
+## Features
+
+- **Speed Monitoring**: Real-time speed gauge with speed limit indicators
+- **Signal Status**: Live tracking of railway signals
+- **Obstacle Detection**: Real-time distance measurement using ultrasonic sensors
+- **Route Tracking**: Visual timeline of stations with arrival/departure times
+- **Distance Tracking**: Current distance covered and total route distance
+- **Real-time Updates**: WebSocket integration for live data updates
+
+## Technologies Used
+
+- Next.js
+- React
+- TypeScript
+- WebSocket
+- CSS Modules
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js (v14 or higher)
+- npm or yarn
+- ESP8266 or similar microcontroller for sensor data
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/Sanjaykumar-2005/train-monitoring.git
+cd train-monitoring
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+3. Configure the WebSocket connection:
+   - Update the WebSocket URL in `src/components/ObstacleDetection.tsx`
+   - Default URL is `ws://172.16.44.104:81`
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+4. Run the development server:
+```bash
+npm run dev
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
 
-## Learn More
+```
+train-monitoring/
+├── src/
+│   ├── components/
+│   │   ├── SpeedGauge.tsx
+│   │   ├── SignalStatus.tsx
+│   │   ├── RoutePanel.tsx
+│   │   ├── ObstacleDetection.tsx
+│   │   └── TimeDisplay.tsx
+│   ├── constants/
+│   │   ├── routeData.ts
+│   │   └── trainData.ts
+│   ├── styles/
+│   │   └── Home.module.css
+│   ├── types/
+│   │   └── index.ts
+│   └── pages/
+│       └── index.tsx
+└── public/
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Hardware Setup
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+- ESP8266 microcontroller
+- Ultrasonic sensor (HC-SR04)
+- Power supply
+- WiFi connection
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Contributing
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
